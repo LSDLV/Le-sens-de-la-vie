@@ -1,0 +1,19 @@
+body {
+	margin-top: 0;
+	background-color: black;
+}
+
+/*#container {
+	position: relative;
+	width: 1024px;
+	height: 488px;
+	margin: 20px auto;
+}*/
+
+canvas {
+	display: block;
+	position: absolute;
+	background: url('vaisseau.jpg') no-repeat;
+	width: 100%;
+	height: 100%;
+}
