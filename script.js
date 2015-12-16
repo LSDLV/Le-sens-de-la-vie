@@ -8,13 +8,21 @@ window.onload = function() {
 	paper.setup('myCanvas');
 
 	/* ============= Commencer à coder ici ==================*/
-	var path = new Path();
-	path.strokeColor = 'black';
-	var start = new Point(100, 100);
-	path.moveTo(start);
-	path.lineTo(start.add([ 200, -50 ]));
-	view.draw();
+	// Create a rectangle shaped path with its top left point at
+// {x: 75, y: 75} and a size of {width: 75, height: 75}
+var path = new Path.Rectangle({
+	point: [75, 75],
+	size: [75, 75],
+	strokeColor: 'black'
+});
 
+function onFrame(event) {
+	// Each frame, rotate the path by 3 degrees:
+	path.rotate(3);
+	console.log(event.count);
+}
+
+path.view.draw();
 
 	// Create a point whose x is between 0 and 50,
 	// and y is between 0 and 100
@@ -24,6 +32,11 @@ window.onload = function() {
 	// and height is between 0 and 100
 	var size = new Size(50, 100).multiply(Size.random());
 	console.log(size);
+
+	var spermHead = new Point(50, 50);
+	spermHead.fillColor = 'black';
+	console.log(spermHead);
+	var spermHeadSize = new Size(100, 100);
 	
 	/*=================== Fin du code ici ===================*/
 
