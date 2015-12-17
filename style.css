@@ -11,3 +11,7 @@ body {
   position: absolute;
   width: 100%;
 }
+p {
+  webkit-animation: rainbow 60s linear infinite;
+  animation: rainbow 60s linear infinite;
+}
