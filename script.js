@@ -12,7 +12,7 @@ window.onload = function() {
   var path = new Path.Circle({
     center: view.center,
     justification: 'center',
-    radius: 30,
+    radius: 20,
     fillColor: 'red'
   });
   var destination = Point.random().multiply(view.size);
@@ -30,24 +30,7 @@ window.onload = function() {
 
 
 
-var sperm = new function() {
-  var center = view.center;
-  var size = 20;
-  var partLength = 5;
-  var mypath = new Path();
-  for (var i = 0; i < size; i++) {
-    mypath.add(center - [i * partLength, 0]);
-  }
-  path.strokeColor = 'white';
 
-
-  var headpath = new Path.Oval({
-    from: [0, 0],
-    to: [12, 8],
-    fillColor: 'red',
-    strokeColor: null
-  });
-}
 
 // view.draw();
 /*=================== Fin du code ici ====
