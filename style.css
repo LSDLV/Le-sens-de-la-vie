@@ -9,6 +9,5 @@ body {
 }
 #myCanvas {
   position: absolute;
-  background-color: white;
   width: 100%;
 }
