@@ -7,30 +7,27 @@ window.onload = function() {
     // Créer un projet vide et une view pour le canvas
     paper.setup('myCanvas');
 
-	/* ============= Commencer à coder ici ================== */
-
-	// Create a rectangle shaped path with its top left point at
-	// {x: 75, y: 75} and a size of {width: 75, height: 75}
-	var path = new Path.Rectangle({
-		point: [75, 75],
-		size: [75, 75],
-		fillColor: 'black'
+	/* ============= Commencer à coder ici ==================*/
+  	var path = new Path.Circle({
+  	center: view.center,
+  	justification: 'center',
+  	radius: 30,
+  	fillColor: 'red'
 	});
 
-	view.onFrame = function(event) {
-		// Each frame, rotate the path by 3 degrees:
-		path.rotate(3);
+	var destination = Point.random().multiply(view.size);
+
+	view.onFrame=function(event) {
+	    path.fillColor.hue += 1;
+		var vector = destination.subtract(path.position);
+		path.position=path.position.add(vector.divide(30)) ;
+		path.content = Math.round(vector.length);
+		if (vector.length < 75) {
+		destination = Point.random().multiply(view.size);
+		}
 	}
 
-	var myPoint = new Point({
-		point: [100, 100],
-		size: [75, 75],
-		fillColor: 'gold'
-	});
-		
-	
+	/*=================== Fin du code ici ===================*/
 
-    /* =================== Fin du code ici =================== */
-
-  } // Fin de la fonction onload*/
+} // Fin de la fonction onload
 
