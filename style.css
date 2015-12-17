@@ -12,12 +12,5 @@ body {
 
 #myCanvas {
   position: absolute;
-  background-color: white;
-}
-
-.tunnel {
-  position: absolute;
-  top:0;
-  width: 1200px;
-  height: 600px;
+  width: 100%;
 }
