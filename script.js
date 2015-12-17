@@ -8,13 +8,18 @@ window.onload = function() {
     paper.setup('myCanvas');
 
     /* ============= Commencer à coder ici ==================*/
-    var path = new Path();
-    path.strokeColor = 'black';
-    var start = new Point(100, 100);
-    path.moveTo(start);
-    path.lineTo(start.add([200, -50]));
-    view.draw();
 
+// mouveemnt du tetard
+var path = new Path.Rectangle({
+	point: [75, 75],
+	size: [75, 75],
+	strokeColor: 'blue'
+});
+
+view.onFrame = function(event) {
+
+	path.rotate(5);
+}
 
     // Create a point whose x is between 0 and 50,
     // and y is between 0 and 100
@@ -28,6 +33,15 @@ window.onload = function() {
     var ctx = canvas.getContext("2d");
     var tunnel = document.getElementByClass("all");
     ctx.drawImage(tunnel, 0, 0);
+
+
+
+
+
+
+
+
+
     /*=================== Fin du code ici ===================*/
 
   } // Fin de la fonction onload
