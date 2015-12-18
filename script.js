@@ -7,46 +7,48 @@ window.onload = function() {
   // Créer un projet vide et une view pour le canvas
   paper.setup('myCanvas');
 
-
   /* ============= Commencer à coder ici ==================*/
-  var path = new Path.Circle({
+  // ovule
+  var ovule = new Path.Circle({
     center: view.center,
     justification: 'center',
-    radius: 20,
+    radius: 30,
     fillColor: 'red'
   });
+
   var destination = Point.random().multiply(view.size);
+
   view.onFrame = function(event) {
-    path.fillColor.hue += 1;
-    var vector = destination.subtract(path.position);
-    path.position = path.position.add(vector.divide(30));
-    path.content = Math.round(vector.length);
+    ovule.fillColor.hue += 1;
+    var vector = destination.subtract(ovule.position);
+    ovule.position = ovule.position.add(vector.divide(30));
+    ovule.content = Math.round(vector.length);
     if (vector.length < 75) {
       destination = Point.random().multiply(view.size);
     }
-
   }
-}
 
+  // tetard
+  project.currentStyle = {
+    strokeColor: 'black',
+    strokeWidth: 4,
+    strokeCap: 'round'
+  };
+  var headSperm = new Path.Circle(new Point(600, 300), 10);
+  headSperm.fillColor = 'white';
 
+  var tailSperm = new Path({
+    segments: [
+      [600, 300],
+      [680, 300]
+    ],
+    strokeWidth: 5,
+    strokeJoin: 'round',
+    strokeColor: 'white',
+    strokeCap: 'round'
+  });
+  path.strokeColor = 'white';
 
+  /*=================== Fin du code ici ===================*/
 
-
-// view.draw();
-/*=================== Fin du code ici ====
-[]===============
-// Create a circle shaped path at the center of the view,
-// with a radius of 70:
-var path = new Path.Circle({
-	center: view.center,
-	radius: 70,
-	fillColor: 'red'
-});
-
-function onFrame(event) {
-	// Each frame, change the fill color of the path slightly by
-	// adding 1 to its hue:
-	path.fillColor.hue += 1;
-}
-
-} // Fin de la fonction onload*/
+}; // Fin de la fonction onload
