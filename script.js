@@ -8,77 +8,35 @@ window.onload = function() {
     paper.setup('myCanvas');
 
 	/* ============= Commencer à coder ici ==================*/
-  /*création du cercle avec un radius de 30*/
-  var path = new Path.Circle({
+  	var ovule = new Path.Circle({
   	center: view.center,
   	justification: 'center',
   	radius: 30,
   	fillColor: 'red'
-});
-var destination = Point.random().multiply(view.size);/*définir une destination aléatoire du cercle dans la fenetre*/
-view.onFrame=function(event) {
-  path.fillColor.hue += 1; /*changement de la couleur du cercle en rajoutant 1 à la teinte */
-	var vector = destination.subtract(path.position);/*le vecteur=à la différence entre la position du cercle et le point de destination*/
-	path.position=path.position.add(vector.divide(30)) ;/*ajouter 1/30e du vecteur à la propriété position pour déplcer le cercle*/
-	path.content = Math.round(vector.length);/*définir le contenu du chemin : la distance qu'il doit parcourir*/
-	if (vector.length < 75) {     /*si la distance entre le chemin et la destination est inf à 75 alors destination=redéfini un point aléatoire*/
-		destination = Point.random().multiply(view.size);         /*dans la taille de la fenêtre*/
+	});
+	var destination = Point.random().multiply(view.size);
+
+	view.onFrame=function(event) {
+	    ovule.fillColor.hue += 1;
+		var vector = destination.subtract(ovule.position);
+		ovule.position=ovule.position.add(vector.divide(30)) ;
+		ovule.content = Math.round(vector.length);
+		if (vector.length < 75) {
+		destination = Point.random().multiply(view.size);
+		}
 	}
-}
-}
 
+	var headSperm = new Path.Circle(new Point(600, 300), 10);
+	headSperm.fillColor ='white';
 
+	var tailSperm = new Path({
+		segments: [[600, 300], [680, 300]],
+		strokeWidth: 5,
+		strokeJoin:'round',
+		strokeColor:'white',
+		strokeCap: 'round'
+	});
 
-// view.draw();
-/*=================== Fin du code ici ===================
-function enter(event) {
-    this.fillColor = 'red';
-}
+	/*=================== Fin du code ici ===================*/
 
-function leave(event) {
-    this.fillColor = 'black';
-}
-
-// When the mouse is pressed:
-function onMouseDown(event) {
-    // Create a circle shaped path at the position of the mouse:
-    var path = new Path.Circle(event.point, 25);
-    path.fillColor = 'black';
-
-    // When the mouse enters the item, set its fill color to red:
-    path.onMouseEnter = enter;
-
-    // When the mouse leaves the item, set its fill color to black:
-    path.onMouseLeave = leave;
-}
-var text = new PointText ({
-	point: view.center,
-	justification: 'center',
-	fontSize: 30,
-	fillColor: 'black'
-});
-}
-
-function enter(event) {
-    this.fillColor = 'red';
-}
-function leave(event) {
-    this.fillColor = 'black';
-}
-function onMouseDown(event) {
-    // Create a circle shaped path at the position of the mouse:
-    var text = new PointText ;
-    text.fillColor = 'black';
-    text.content = "Le sens de la vie"
-
-    // When the mouse enters the item, set its fill color to red:
-    text.onMouseEnter = enter;
-    // When the mouse leaves the item, set its fill color to black:
-    text.onMouseLeave = leave;
-    }
-}
-
-
-
-};*/
-/* Fin de la fonction onload*/
+}; // Fin de la fonction onload
