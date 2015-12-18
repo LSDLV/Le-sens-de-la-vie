@@ -24,8 +24,61 @@ view.onFrame=function(event) {
 	if (vector.length < 75) {     /*si la distance entre le chemin et la destination est inf à 75 alors destination=redéfini un point aléatoire*/
 		destination = Point.random().multiply(view.size);         /*dans la taille de la fenêtre*/
 	}
+}
+}
 
-}
-}
+
+
 // view.draw();
 /*=================== Fin du code ici ===================
+function enter(event) {
+    this.fillColor = 'red';
+}
+
+function leave(event) {
+    this.fillColor = 'black';
+}
+
+// When the mouse is pressed:
+function onMouseDown(event) {
+    // Create a circle shaped path at the position of the mouse:
+    var path = new Path.Circle(event.point, 25);
+    path.fillColor = 'black';
+
+    // When the mouse enters the item, set its fill color to red:
+    path.onMouseEnter = enter;
+
+    // When the mouse leaves the item, set its fill color to black:
+    path.onMouseLeave = leave;
+}
+var text = new PointText ({
+	point: view.center,
+	justification: 'center',
+	fontSize: 30,
+	fillColor: 'black'
+});
+}
+
+function enter(event) {
+    this.fillColor = 'red';
+}
+function leave(event) {
+    this.fillColor = 'black';
+}
+function onMouseDown(event) {
+    // Create a circle shaped path at the position of the mouse:
+    var text = new PointText ;
+    text.fillColor = 'black';
+    text.content = "Le sens de la vie"
+
+    // When the mouse enters the item, set its fill color to red:
+    text.onMouseEnter = enter;
+    // When the mouse leaves the item, set its fill color to black:
+    text.onMouseLeave = leave;
+    }
+}
+
+
+
+};*/
+/* Fin de la fonction onload*/
