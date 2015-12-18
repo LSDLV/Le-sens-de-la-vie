@@ -8,7 +8,6 @@ window.onload = function() {
   paper.setup('myCanvas');
 
   /* ============= Commencer à coder ici ==================*/
-  // ovule
   var ovule = new Path.Circle({
     center: view.center,
     justification: 'center',
@@ -28,26 +27,19 @@ window.onload = function() {
     }
   }
 
-  // tetard
-  project.currentStyle = {
-    strokeColor: 'black',
-    strokeWidth: 4,
-    strokeCap: 'round'
-  };
   var headSperm = new Path.Circle(new Point(600, 300), 10);
   headSperm.fillColor = 'white';
 
   var tailSperm = new Path({
     segments: [
       [600, 300],
-      [680, 300]
+      [680, 300],
     ],
     strokeWidth: 5,
     strokeJoin: 'round',
     strokeColor: 'white',
-    strokeCap: 'round'
+    strokeCap: 'round',
   });
-  path.strokeColor = 'white';
 
   /*=================== Fin du code ici ===================*/
 
