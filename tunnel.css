@@ -41,7 +41,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-image: url(http://fr.yoyowall.com/wallpapers/2013/08/Rouge-fond-1152x2048.jpg);
+  background-image: url(/Le-sens-de-la-vie/Rouge-fond-728x455.jpg);
   transform: translateZ(-1px);
   animation: 2s left linear infinite;
 }
@@ -79,7 +79,7 @@
   width: 1200px;
   height: 200px;
   transform: translateX(-400px) translateY(600px) translateZ(-100px) rotateY(90deg) rotateZ(90deg);
-  background-image: url(http://fr.yoyowall.com/wallpapers/2013/08/Rouge-fond-1152x2048.jpg);
+  background-image: url(/Le-sens-de-la-vie/Rouge-fond-728x455.jpg);
   animation: 2s right linear infinite;
 }
 
@@ -90,7 +90,7 @@
   left: -10px;
   right: -10px;
   bottom: 0px;
-  background-image: url(http://fr.yoyowall.com/wallpapers/2013/08/Rouge-fond-1152x2048.jpg);
+  background-image: url(/Le-sens-de-la-vie/Rouge-fond-728x455.jpg);
   animation: 2s top linear infinite;
 }
 
@@ -102,7 +102,7 @@
   width: 220px;
   height: 1200px;
   margin: -600px -110px;
-  background-image: url(http://fr.yoyowall.com/wallpapers/2013/08/Rouge-fond-1152x2048.jpg);
+  background-image: url(/Le-sens-de-la-vie/Rouge-fond-728x455.jpg);
   transform: translateY(101px) rotateX(90deg);
   animation: 2s bottom linear infinite;
 }
@@ -161,4 +161,3 @@
     transform: translateX(80px) translateY(300px) scale(.8) rotateZ(-2deg);
   }
 }
-

@@ -14,48 +14,55 @@
   var destination = Point.random().multiply(view.size); /*définir une destination aléatoire du cercle dans la fenetre*/
 
   function onFrame(event) {
-          if (Key.isDown('left'))
-            sperm.left();
+    if (Key.isDown('left'))
+      sperm.left();
 
-          if (Key.isDown('right'))
-            sperm.right();
+    if (Key.isDown('right'))
+      sperm.right();
 
-          if (Key.isDown('up'))
-            sperm.forward();
+    if (Key.isDown('up'))
+      sperm.forward();
 
-          if (Key.isDown('down'))
-            sperm.reverse();
-          sperm.draw();
+    if (Key.isDown('down'))
+      sperm.reverse();
+    sperm.draw();
 
-        }
-      }
+    ovule.fillColor.hue += 1; /*changement de la couleur du cercle en rajoutant 1 à la teinte */
+    var vector = destination.subtract(ovule.position); /*le vecteur=à la différence entre la position du cercle et le point de destination*/
+    ovule.position = ovule.position.add(vector.divide(30)); /*ajouter 1/30e du vecteur à la propriété position pour déplacer le cercle*/
+    ovule.content = Math.round(vector.length); /*définir le contenu du chemin : la distance qu'il doit parcourir*/
+    if (vector.length < 75) { /*si la distance entre le chemin et la destination est inf à 75 alors destination=redéfini un point aléatoire*/
+      destination = Point.random().multiply(view.size); /*dans la taille de la fenêtre*/
 
-      function onKeyDown(event) {
-        // Prevent the arrow keys from scrolling the window:
-        return !(/left|right|up|down/.test(event.key));
-      }
-      // Définir la forme et la couleur du cou du tetard
-      project.currentStyle = {
-        strokeColor: 'white',
-        strokeWidth: 4,
-        strokeCap: 'round'
-      };
-      // Définir la forme et la couleur de la queue du tetard
-      var sperm = new function() {
-        var center = view.center;
-      var size = 20;
-      var partLength = 5;
-      var path = new Path();
-      for (var i = 0; i < size; i++) {
-      path.add(center - [i * partLength, 0]);
-      }
-      path.strokeColor = 'white';
 
+    }
+  }
+
+  function onKeyDown(event) {
+    // Prevent the arrow keys from scrolling the window:
+    return !(/left|right|up|down/.test(event.key));
+  }
+  // Définir la forme et la couleur du cou du tetard
+  project.currentStyle = {
+    strokeColor: 'white',
+    strokeWidth: 30,
+    strokeCap: 'round'
+  };
+  // Définir la forme et la couleur de la queue du tetard
+  var sperm = new function() {
+    var center = view.center;
+  var size = 20;
+  var partLength = 5;
+  var path = new Path();
+  for (var i = 0; i < size; i++) {
+  path.add(center - [i * partLength, 0]);
+  }
+  path.strokeColor = 'blue';
       // Dessiner la tete du tetard
       var headPath = new Path.Oval({
       from: [0, 0],
       to: [13, 8],
-      fillColor: 'white',
+      fillColor: 'red',
       strokeColor: null
       });
       // Définir les mouvements du tetard
@@ -157,58 +164,7 @@
           }
           }
           };
-    ovule.fillColor.hue += 1; /*changement de la couleur du cercle en rajoutant 1 à la teinte */
-    var vector = destination.subtract(ovule.position); /*le vecteur=à la différence entre la position du cercle et le point de destination*/
-    ovule.position = ovule.position.add(vector.divide(30)); /*ajouter 1/30e du vecteur à la propriété position pour déplacer le cercle*/
-    ovule.content = Math.round(vector.length); /*définir le contenu du chemin : la distance qu'il doit parcourir*/
-    if (vector.length < 75) { /*si la distance entre le chemin et la destination est inf à 75 alors destination=redéfini un point aléatoire*/
-      destination = Point.random().multiply(view.size); /*dans la taille de la fenêtre*/
-
   /*=================== Fin du code ici ===================
-  // Faire agir le tetard en fonction du clavier
-  function onFrame() {
-    if (Key.isDown('left'))
-      sperm.left();
 
-    if (Key.isDown('right'))
-      sperm.right();
-
-    if (Key.isDown('up'))
-      sperm.forward();
-
-    if (Key.isDown('down'))
-      sperm.reverse();
-    sperm.draw();
-  }
-
-  function onKeyDown(event) {
-    // Prevent the arrow keys from scrolling the window:
-    return !(/left|right|up|down/.test(event.key));
-  }
-  // Définir la forme et la couleur du cou du tetard
-  project.currentStyle = {
-    strokeColor: 'white',
-    strokeWidth: 4,
-    strokeCap: 'round'
-  };
-
-  // Définir la forme et la couleur de la queue du tetard
-  var sperm = new function() {
-    var center = view.center;
-  var size = 20;
-  var partLength = 5;
-  var path = new Path();
-  for (var i = 0; i < size; i++) {
-  path.add(center - [i * partLength, 0]);
-  }
-  path.strokeColor = 'white';
-
-  // Dessiner la tete du tetard
-  var headPath = new Path.Oval({
-  from: [0, 0],
-  to: [13, 8],
-  fillColor: 'white',
-  strokeColor: null
-  });
 
 */
