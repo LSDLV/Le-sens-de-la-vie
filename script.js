@@ -45,7 +45,7 @@
   // Définir la forme et la couleur du cou du tetard
   project.currentStyle = {
     strokeColor: 'white',
-    strokeWidth: 30,
+    strokeWidth: 4,
     strokeCap: 'round'
   };
   // Définir la forme et la couleur de la queue du tetard
@@ -57,12 +57,12 @@
   for (var i = 0; i < size; i++) {
   path.add(center - [i * partLength, 0]);
   }
-  path.strokeColor = 'blue';
+  path.strokeColor = 'white';
       // Dessiner la tete du tetard
       var headPath = new Path.Oval({
       from: [0, 0],
       to: [13, 8],
-      fillColor: 'red',
+      fillColor: 'white',
       strokeColor: null
       });
       // Définir les mouvements du tetard
